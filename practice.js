@@ -63,23 +63,25 @@ newNum("435-215-9248");
 //Next Problem
 
 
-
-var mainFn = function(fn){
+var mainFn = function(fn,num) {
   var called = false;
-  return function(){
-    if (called === false){
+  var count = 0;
+  return function() {
+    if (called === false) {
       fn();
-      called = true
-    }else{
-        return "Stop";
-      }
-      
-  
-     return name;       
+      count++;
+    }
+     if(count >= num) {
+        called = true
+        return "STAHHP";
+    }      
   }
 }
-var newFn = mainFn(function);
-alert(mainFn();
+var newFn = mainFn(function() {
+  console.log("Hi")
+},3);
+
+newFn();
  /* 
   Write a function that accepts another function as it's only argument and returns a new function
   (which invokes the original function that was passed in) that can only ever be executed once.
