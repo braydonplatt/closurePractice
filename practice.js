@@ -9,11 +9,11 @@ var outer = function(){
 //Above you're given a function that returns another function which has a closure over the name variable.
 //Invoke outer saving the return value into another variable called 'inner'.
 
-  //Code Here
+var inner = outer();
 
 //Once you do that, invoke inner.
 
-  //Code Here
+inner();
 
 
 
@@ -32,7 +32,8 @@ var callFriend = function(){
 //Above you're given a callFriend function that returns another function.
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
-  //Code Here
+var newNum = callFriend();
+newNum("435-215-9248");
 
 
 
@@ -44,7 +45,13 @@ var callFriend = function(){
   Write a function called makeCounter that makes the following code work properly.
 */
 
-  //Code Here
+  var makeCounter = function(){
+    var count = 0;
+    return function(){
+      count++;
+      return count;
+    };
+  };
   var count = makeCounter();
   count() // 1
   count() // 2
@@ -57,13 +64,74 @@ var callFriend = function(){
 
 
 
-/*
+var scope1 = function(num){
+  
+}
+ /* 
   Write a function that accepts another function as it's only argument and returns a new function
   (which invokes the original function that was passed in) that can only ever be executed once.
   Once completed, add a second arguments that allows the function to be invoked N number of times.
   After the function has been called N number of times, console.log('STAHHP');
 */
 
+
+
+
+
+var counter = function(){
+  var count = 0;
+  return function(){
+    count++;
+    return count;
+    }
+  }
+var innerFn = counter();
+   innerFn();
+
+
+
+
+var counter = function(num) {
+    return function(){
+    num++;
+    return num;
+  }
+};
+var innerFn = counter(100);
+   innerFn();
+
+
+var multiplier = function(num){
+  return function(num2){
+    return num * num2;
+  };
+};
+var twice = multiplier(2);
+twice(5);
+twice(4);
+
+
+
+
+var nameFn = function(){
+  var name = 'Tyler';
+  return function(){
+    return {
+      getName: function(){
+        return name;
+      }
+      changeName: function(newName){
+        name = newName;
+      }
+  };
+};
+var nameObj = nameFn("Tyler");
+
+nameObj
+
+nameObj.getName();
+
+nameObj.changeName("Mike");
 
 
 
