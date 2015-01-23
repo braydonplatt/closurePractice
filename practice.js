@@ -64,9 +64,22 @@ newNum("435-215-9248");
 
 
 
-var scope1 = function(num){
+var mainFn = function(fn){
+  var called = false;
+  return function(){
+    if (called === false){
+      fn();
+      called = true
+    }else{
+        return "Stop";
+      }
+      
   
+     return name;       
+  }
 }
+var newFn = mainFn(function);
+alert(mainFn();
  /* 
   Write a function that accepts another function as it's only argument and returns a new function
   (which invokes the original function that was passed in) that can only ever be executed once.
