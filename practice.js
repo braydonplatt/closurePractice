@@ -9,11 +9,11 @@ var outer = function(){
 //Above you're given a function that returns another function which has a closure over the name variable.
 //Invoke outer saving the return value into another variable called 'inner'.
 
-var inner = outer();
+var innerFn = outer();
 
 //Once you do that, invoke inner.
 
-inner();
+innerFn();
 
 
 
@@ -46,7 +46,7 @@ newNum("435-215-9248");
 */
 
   var makeCounter = function(){
-    var count = 0;
+    var count = 1;
     return function(){
       count++;
       return count;
@@ -58,7 +58,9 @@ newNum("435-215-9248");
   count() // 3
   count() // 4
 
-
+makeCounter();
+var counter = makeCounter();
+counter();
 
 //Next Problem
 
